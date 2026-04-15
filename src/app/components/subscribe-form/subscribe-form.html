@@ -1,0 +1,48 @@
+<div class="subscribe-container">
+  <!-- lado esquerdo (imagem) -->
+  <div class="left-panel">
+    <div class="overlay"></div>
+  </div>
+
+  <!-- lado direito (form) -->
+  <div class="right-panel">
+    <div class="form-wrapper">
+      <div class="header">
+        <h1>Cadastre-se já</h1>
+        <p>Leva menos de um minuto para você se juntar à nossa comunidade.</p>
+      </div>
+      <p-card header="Preencha suas credenciais">
+        <form [formGroup]="formSubscribe" (ngSubmit)="onSubmit()">
+          <div class="form-group-inputs">
+            <p-floatlabel>
+              <input formControlName="name" pInputText />
+              <label>Nome completo</label>
+            </p-floatlabel>
+
+            <p-floatlabel>
+              <input formControlName="birthDate" pInputText />
+              <label>Data de nascimento</label>
+            </p-floatlabel>
+
+            <p-floatlabel>
+              <input formControlName="email" pInputText />
+              <label>E-mail</label>
+            </p-floatlabel>
+
+            <p-floatlabel>
+              <p-password formControlName="password"></p-password>
+              <label>Senha</label>
+            </p-floatlabel>
+
+            <p-floatlabel>
+              <p-password formControlName="confirmPassword"></p-password>
+              <label>Confirme sua senha</label>
+            </p-floatlabel>
+          </div>
+
+          <p-button type="submit" label="Cadastrar"></p-button>
+        </form>
+      </p-card>
+    </div>
+  </div>
+</div>

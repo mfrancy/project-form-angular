@@ -1,0 +1,99 @@
+.subscribe-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* lado esquerdo */
+.left-panel {
+  flex: 1;
+  background: #ccc;
+  background-size: cover;
+  position: relative;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+}
+
+/* overlay opcional tipo gradiente */
+.left-panel .overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+}
+
+/* lado direito */
+.right-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f6fa;
+}
+
+/* container do form */
+.form-wrapper {
+  width: 100%;
+  max-width: 420px;
+}
+
+.header {
+  margin-bottom: 24px;
+  padding: 0
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+}
+
+p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+:host ::ng-deep .p-card-title {
+  margin-bottom: 0.5rem;
+}
+
+:host ::ng-deep .p-card-header {
+  padding-bottom: 10px;
+}
+
+/* inputs */
+.form-group-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem; /* aumenta um pouco */
+  margin-top: 1rem;
+}
+
+:host ::ng-deep .p-button {
+  margin-top: 24px !important;
+  width: 100%;
+}
+
+:host ::ng-deep .p-inputtext {
+  width: 100%;
+}
+
+:host ::ng-deep .p-password {
+  width: 100%;
+}
+
+:host ::ng-deep .p-password input {
+  width: 100%;
+}
+
+/* card ajuste */
+:host ::ng-deep .p-card {
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  border: none;
+}
+
+:host ::ng-deep .p-card-body {
+  padding: 1.5rem;
+}
+

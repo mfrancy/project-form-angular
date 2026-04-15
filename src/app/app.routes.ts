@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { FormLogin } from './components/form-login/form-login';
+import { SubscribePage } from './pages/subscribe-page/subscribe-page';
 
 export const routes: Routes = [
-    {path: '', component: FormLogin,
+    {path: '', component: SubscribePage,
         title: 'Login'
     }
 ];
