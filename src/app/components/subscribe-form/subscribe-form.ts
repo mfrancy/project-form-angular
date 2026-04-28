@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
   FormGroup,
+  AbstractControl,
 } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
@@ -31,30 +32,29 @@ const MODULES = [ReactiveFormsModule];
   styleUrl: './subscribe-form.css',
 })
 export class SubscribeForm implements OnInit {
-  @Output() submitValue = new EventEmitter<CreateUser>();
+  @Output() createUser = new EventEmitter<CreateUser>();
   fb = inject(FormBuilder);
   formSubscribe!: FormGroup;
-
-
 
   onSubmit() {
     if (this.formSubscribe.invalid) return;
     const formValue = this.formSubscribe.value;
-    return this.submitValue.emit(formValue);
+    return this.createUser.emit(formValue);
+  }
+
+  passwordValidator(control: AbstractControl) {
+    const form = control as FormGroup;
+    const password = form.get('password')?.value;
+    const confirmPassword = form.get('confirmPassword')?.value;
+
+    if (!password || !confirmPassword) {
+      return null;
+    }
+
+    return password === confirmPassword ? null : { passwordMatch: true };
   }
 
   ngOnInit() {
-    function passwordValidator(form: FormGroup) {
-      const password = form.get('password')?.value;
-      const confirmPassword = form.get('confirmPassword')?.value;
-
-      if (!password || !confirmPassword) {
-        return null;
-      }
-
-      return password === confirmPassword ? null : { passwordMatch: true };
-    }
-
     this.formSubscribe = this.fb.group(
       {
         name: ['Mariana', Validators.required],
@@ -64,7 +64,7 @@ export class SubscribeForm implements OnInit {
         confirmPassword: ['Senha123@', Validators.required],
       },
       {
-        validators: passwordValidator,
+        validators: this.passwordValidator,
       },
     );
   }

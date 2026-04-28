@@ -1,0 +1,26 @@
+<div class="subscribe-container">
+  <div class="login-panel">
+    <p-card header="Preencha suas credenciais">
+        <div class="card-header">
+            <p>Ainda não tem uma conta? <span class="link" routerLink="/">Inscreva-se</span></p>
+        </div>
+      <div class="form-wrapper">
+        <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+          <div class="form-group-inputs">
+            <p-floatlabel>
+              <input formControlName="email" pInputText />
+              <label>E-mail</label>
+            </p-floatlabel>
+            <p-floatlabel>
+              <input formControlName="password" pInputText />
+              <label>Senha</label>
+            </p-floatlabel>
+          </div>
+          <div class="actions">
+              <p-button type="submit" label="Cadastrar"></p-button>
+          </div>
+        </form>
+      </div>
+    </p-card>
+  </div>
+</div>
